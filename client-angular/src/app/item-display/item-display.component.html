@@ -1,0 +1,8 @@
+<h3>List of Groceries (Angular)</h3>
+<input /><button class="btn btn-primary">search</button>
+<ul>
+  <li *ngFor="let item of items">
+     {{ item.name }} 
+     <img [src]="item.image" width="100" height="100">
+  </li>
+</ul>
