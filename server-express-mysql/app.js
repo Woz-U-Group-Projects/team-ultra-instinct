@@ -1,3 +1,4 @@
+var createError = require('http-errors');
 var express = require("express");
 var path = require("path");
 var cookieParser = require("cookie-parser");
@@ -7,6 +8,8 @@ var cors = require("cors");
 
 var tasksRouter = require("./routes/tasks");
 var searchRouter = require("./routes/search");
+var indexRouter = require('./routes/index');
+var usersRouter = require('./routes/users');
 
 var app = express();
 
