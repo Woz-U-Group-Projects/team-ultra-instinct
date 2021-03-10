@@ -9,12 +9,24 @@ import { Observable } from "rxjs";
 export class ItemService {
 
   // Express will use port 3000
-  apiUrl: string = "http://localhost:3001/search";
+  apiUrl: string = "http://localhost:3001/";
 
   constructor(private http: HttpClient) {}
 
   getItems(): Observable<Item[]> {
-    return this.http.get<Item[]>(this.apiUrl);
+    return this.http.get<Item[]>(this.apiUrl + "search");
+  }
+
+  getProduceItems(): Observable<Item[]> {
+    return this.http.get<Item[]>(this.apiUrl + "search/produce");
+  }
+
+  getDairyItems(): Observable<Item[]> {
+    return this.http.get<Item[]>(this.apiUrl + "search/dairy")
+  }
+
+  getSodaItems(): Observable<Item[]> {
+    return this.http.get<Item[]>(this.apiUrl + "search/soda")
   }
 
 }

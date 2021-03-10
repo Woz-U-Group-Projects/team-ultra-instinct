@@ -13,6 +13,18 @@ export class ItemDisplayComponent implements OnInit {
   getItems() {
     this.itemService.getItems().subscribe(items => (this.items = items));
   }
+
+  getProduceItems() {
+    this.itemService.getProduceItems().subscribe(items => (this.items = items));
+  }
+
+  getDairyItems() {
+    this.itemService.getDairyItems().subscribe(items => (this.items = items));
+  }
+
+  getSodaItems() {
+    this.itemService.getSodaItems().subscribe(items => (this.items = items));
+  }
   
   ngOnInit() {
     this.getItems();
