@@ -1,5 +1,9 @@
 'use strict';
 
+var express = require("express");
+var router = express.Router();
+var models = require("../models");
+
 const fs = require('fs');
 const path = require('path');
 const Sequelize = require('sequelize');
