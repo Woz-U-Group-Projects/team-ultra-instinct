@@ -29,4 +29,16 @@ export class ItemService {
     return this.http.get<Item[]>(this.apiUrl + "search/soda")
   }
 
+  getProteinItems(): Observable<Item[]> {
+    return this.http.get<Item[]>(this.apiUrl + "search/protein")
+  }
+
+  getQueryItems(searchQuery): Observable<Item[]> {
+    return this.http.get<Item[]>(this.apiUrl + "search/searchQuery?queryString=" + searchQuery) 
+  }
+
+  addToCart(itemId, itemQty): Observable<Item[]> {
+    return this.http.get<Item[]>(this.apiUrl + "search/addToCart?itemId="+itemId+"&itemQty=" + itemQty) 
+  }
+
 }
