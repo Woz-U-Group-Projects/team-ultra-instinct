@@ -6,6 +6,7 @@ var models = require("./models");
 var cors = require("cors");
 
 var tasksRouter = require("./routes/tasks");
+var searchRouter = require("./routes/search");
 
 var app = express();
 
@@ -17,6 +18,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(cors());
 
 app.use("/tasks", tasksRouter);
+app.use("/search", searchRouter);
 
 models.sequelize.sync().then(function() {
   console.log("DB Sync'd up");
