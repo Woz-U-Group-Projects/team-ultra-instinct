@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
-var models = require('../authentication/models');
-var passport = require('../authentication/services/passport');
+var models = require('../models');
+var passport = require('../services/passport');
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
@@ -34,13 +34,6 @@ router.post('/signup', function(req, res, next) {
     });
 });
 
-router.get('/login', function(req, res, next) {
-  res.render('login');
-});
-
-router.post('/login', passport.authenticate('local', { failureRedirect: '/users/login' }), function (req, res, next) {
-  res.redirect('profile') });
-
 router.get('/profile', function (req, res, next) {
   if (req.user) {
     models.users
@@ -61,5 +54,18 @@ router.get('/profile', function (req, res, next) {
     res.redirect('/users/login');
   }
 });
+
+router.get('/login', function(req, res, next) {
+  res.render('login');
+});
+
+router.post('/login',  passport.authenticate('local', {
+  failureRedirect: '/users/login'
+  }),
+  function (req, res, next) {
+    res.redirect('profile');
+});
+
+
 
 module.exports = router;

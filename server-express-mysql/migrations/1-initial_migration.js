@@ -5,6 +5,7 @@ var Sequelize = require('sequelize');
 /**
  * Actions summary:
  *
+ * createTable "products", deps: []
  * createTable "users", deps: []
  *
  **/
@@ -12,56 +13,96 @@ var Sequelize = require('sequelize');
 var info = {
     "revision": 1,
     "name": "initial_migration",
-    "created": "2021-02-26T04:31:48.628Z",
+    "created": "2021-03-16T18:46:36.021Z",
     "comment": ""
 };
 
 var migrationCommands = [{
-    fn: "createTable",
-    params: [
-        "users",
-        {
-            "UserId": {
-                "type": Sequelize.INTEGER,
-                "field": "UserId",
-                "primaryKey": true,
-                "autoIncrement": true,
-                "allowNull": false
+        fn: "createTable",
+        params: [
+            "products",
+            {
+                "ProductId": {
+                    "type": Sequelize.INTEGER(11),
+                    "field": "ProductId",
+                    "primaryKey": true,
+                    "allowNull": false
+                },
+                "Name": {
+                    "type": Sequelize.STRING(255),
+                    "field": "Name",
+                    "allowNull": true
+                },
+                "Cost": {
+                    "type": Sequelize.INTEGER(11),
+                    "field": "Cost",
+                    "allowNull": true
+                },
+                "createdAt": {
+                    "type": Sequelize.DATE,
+                    "field": "createdAt",
+                    "allowNull": false
+                },
+                "updatedAt": {
+                    "type": Sequelize.DATE,
+                    "field": "updatedAt",
+                    "allowNull": false
+                }
             },
-            "FirstName": {
-                "type": Sequelize.STRING,
-                "field": "FirstName"
+            {}
+        ]
+    },
+    {
+        fn: "createTable",
+        params: [
+            "users",
+            {
+                "UserId": {
+                    "type": Sequelize.INTEGER(11),
+                    "field": "UserId",
+                    "primaryKey": true,
+                    "allowNull": false
+                },
+                "FirstName": {
+                    "type": Sequelize.STRING(255),
+                    "field": "FirstName",
+                    "allowNull": true
+                },
+                "LastName": {
+                    "type": Sequelize.STRING(255),
+                    "field": "LastName",
+                    "allowNull": true
+                },
+                "Email": {
+                    "type": Sequelize.STRING(255),
+                    "field": "Email",
+                    "allowNull": true
+                },
+                "Username": {
+                    "type": Sequelize.STRING(255),
+                    "field": "Username",
+                    "allowNull": true
+                },
+                "Password": {
+                    "type": Sequelize.STRING(255),
+                    "field": "Password",
+                    "allowNull": true
+                },
+                "createdAt": {
+                    "type": Sequelize.DATE,
+                    "field": "createdAt",
+                    "allowNull": false
+                },
+                "updatedAt": {
+                    "type": Sequelize.DATE,
+                    "field": "updatedAt",
+                    "allowNull": false
+                }
             },
-            "LastName": {
-                "type": Sequelize.STRING,
-                "field": "LastName"
-            },
-            "Email": {
-                "type": Sequelize.STRING,
-                "field": "Email",
-                "unique": true
-            },
-            "Username": {
-                "type": Sequelize.STRING,
-                "field": "Username",
-                "unique": true
-            },
-            "Password": {
-                "type": Sequelize.STRING,
-                "field": "Password"
-            },
-            "createdAt": {
-                "type": Sequelize.DATE,
-                "field": "createdAt"
-            },
-            "updatedAt": {
-                "type": Sequelize.DATE,
-                "field": "updatedAt"
-            }
-        },
-        {}
-    ]
-}];
+            {}
+        ]
+    }
+];
 
 module.exports = {
     pos: 0,

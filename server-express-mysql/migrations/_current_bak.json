@@ -19,11 +19,6 @@
                     "field": "Cost",
                     "seqType": "Sequelize.INTEGER(11)"
                 },
-                "Type": {
-                    "allowNull": true,
-                    "field": "Type",
-                    "seqType": "Sequelize.STRING(255)"
-                },
                 "createdAt": {
                     "allowNull": false,
                     "field": "createdAt",
@@ -85,5 +80,5 @@
             "indexes": []
         }
     },
-    "revision": 2
+    "revision": 1
 }

@@ -1,33 +1,33 @@
 /* jshint indent: 2 */
 
 module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('users', {
-    UserId: {
+  return sequelize.define('products', {
+    ProductId: {
       type: DataTypes.INTEGER(11),
       allowNull: false,
       primaryKey: true
     },
-    FirstName: {
+    Name: {
       type: DataTypes.STRING(255),
       allowNull: true
     },
-    LastName: {
+    Cost: {
+      type: DataTypes.INTEGER(11),
+      allowNull: true
+    },
+    Type: {
       type: DataTypes.STRING(255),
       allowNull: true
     },
-    Email: {
-      type: DataTypes.STRING(255),
-      allowNull: true
+    createdAt: {
+      type: DataTypes.DATE,
+      allowNull: false
     },
-    Username: {
-      type: DataTypes.STRING(255),
-      allowNull: true
-    },
-    Password: {
-      type: DataTypes.STRING(255),
-      allowNull: true
+    updatedAt: {
+      type: DataTypes.DATE,
+      allowNull: false
     }
   }, {
-    tableName: 'users'
+    tableName: 'products'
   });
 };
