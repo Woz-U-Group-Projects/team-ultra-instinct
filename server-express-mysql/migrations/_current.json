@@ -19,11 +19,6 @@
                     "field": "Cost",
                     "seqType": "Sequelize.INTEGER(11)"
                 },
-                "Type": {
-                    "allowNull": true,
-                    "field": "Type",
-                    "seqType": "Sequelize.STRING(255)"
-                },
                 "createdAt": {
                     "allowNull": false,
                     "field": "createdAt",
@@ -33,6 +28,16 @@
                     "allowNull": false,
                     "field": "updatedAt",
                     "seqType": "Sequelize.DATE"
+                },
+                "Type": {
+                    "allowNull": true,
+                    "field": "Type",
+                    "seqType": "Sequelize.STRING(255)"
+                },
+                "Quantity": {
+                    "allowNull": false,
+                    "field": "Quantity",
+                    "seqType": "Sequelize.INTEGER(99)"
                 }
             },
             "indexes": []
@@ -85,5 +90,5 @@
             "indexes": []
         }
     },
-    "revision": 2
+    "revision": 1
 }

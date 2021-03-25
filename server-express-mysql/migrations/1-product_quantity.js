@@ -12,8 +12,8 @@ var Sequelize = require('sequelize');
 
 var info = {
     "revision": 1,
-    "name": "initial_migration",
-    "created": "2021-03-16T18:46:36.021Z",
+    "name": "product_quantity",
+    "created": "2021-03-25T02:10:59.836Z",
     "comment": ""
 };
 
@@ -46,6 +46,16 @@ var migrationCommands = [{
                 "updatedAt": {
                     "type": Sequelize.DATE,
                     "field": "updatedAt",
+                    "allowNull": false
+                },
+                "Type": {
+                    "type": Sequelize.STRING(255),
+                    "field": "Type",
+                    "allowNull": true
+                },
+                "Quantity": {
+                    "type": Sequelize.INTEGER(99),
+                    "field": "Quantity",
                     "allowNull": false
                 }
             },

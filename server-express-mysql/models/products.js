@@ -5,7 +5,8 @@ module.exports = function(sequelize, DataTypes) {
     ProductId: {
       type: DataTypes.INTEGER(11),
       allowNull: false,
-      primaryKey: true
+      primaryKey: true,
+      autoIncrement: true
     },
     Name: {
       type: DataTypes.STRING(255),
@@ -15,16 +16,20 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.INTEGER(11),
       allowNull: true
     },
-    Type: {
-      type: DataTypes.STRING(255),
-      allowNull: true
-    },
     createdAt: {
       type: DataTypes.DATE,
       allowNull: false
     },
     updatedAt: {
       type: DataTypes.DATE,
+      allowNull: false
+    },
+    Type: {
+      type: DataTypes.STRING(255),
+      allowNull: true
+    },
+    Quantity: {
+      type: DataTypes.INTEGER(99),
       allowNull: false
     }
   }, {
