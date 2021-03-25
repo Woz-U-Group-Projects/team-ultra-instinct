@@ -1,10 +1,9 @@
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
-
+<body>
 <div class="d-flex" id="wrapper">
   <!-- Sidebar -->
-  <div class="bg-light border-dark border-right pr-1" id="sidebar-wrapper">
-    <div class="sidebar-heading m-3">DGT's Groceries</div>
-    <div class="list-group list-group-flush">
+  <div class="bg-info border-dark border-right pr-1" id="sidebar-wrapper">
+    <div class="sidebar-heading m-3 font-weight-bold font-italic">DG&T's Groceries</div>
+    <div class="list-group list-group-flush font-italic">
       <a href="#" (click)="getItems()" class="col" style="border: 1px solid black" class="list-group-item list-group-item-action bg-light mb-1">All Products</a>
       <a href="#" (click)="getProduceItems()" class="col" style="border: 1px solid black" class="list-group-item list-group-item-action bg-light mb-1">Produce</a>
       <a href="#" (click)="getDairyItems()" class="col" style="border: 1px solid black" class="list-group-item list-group-item-action bg-light mb-1">Dairy</a>
@@ -18,18 +17,22 @@
   <!-- /#sidebar-wrapper -->
   <!-- Page Content -->
   <div id="page-content-wrapper">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+    <nav class="navbar navbar-expand-lg navbar-light bg-info">
       <form (ngSubmit)="getQueryItems($event)">
         <input (change)="handleChange($event)" placeholder="Search items..." name="msg" [(ngModel)]="msg" />
-        <button type="submit">Search</button>
+        <button class="button ml-2" type="submit">Search</button>
       </form>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" class="bi bi-basket2" viewBox="0 0 16 16">
+            <path d="M4 10a1 1 0 0 1 2 0v2a1 1 0 0 1-2 0v-2zm3 0a1 1 0 0 1 2 0v2a1 1 0 0 1-2 0v-2zm3 0a1 1 0 1 1 2 0v2a1 1 0 0 1-2 0v-2z"/>
+            <path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15.5a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-.623l-1.844 6.456a.75.75 0 0 1-.722.544H3.69a.75.75 0 0 1-.722-.544L1.123 8H.5a.5.5 0 0 1-.5-.5v-1A.5.5 0 0 1 .5 6h1.717L5.07 1.243a.5.5 0 0 1 .686-.172zM2.163 8l1.714 6h8.246l1.714-6H2.163z"/>
+          </svg>
           <li class="nav-item active">
-            <a class="nav-link" href="#">Cart ({{ cart.length }})<span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="#">Cart ({{ getCartQuantity(cart) }})<span class="sr-only">(current)</span></a>
           </li>
           <!-- <li class="nav-item">
             <a class="nav-link" href="#">Groceries</a>
@@ -50,7 +53,7 @@
     </nav>
 
     <div class="input-group mb-3">
-      <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Qty</button>
+      <!-- <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Qty</button> -->
       <ul class="dropdown-menu">
         <li><a class="dropdown-item" href="#">Action</a></li>
         <li><a class="dropdown-item" href="#">Another action</a></li>
@@ -68,21 +71,30 @@
         <img [src]="item.image" width="50" height="140" class="card-img-top" alt="...">
         <div class="card-body text-center">
           <h5 class="card-title">{{ item.name }}</h5>
-          <p class="card-text">$5</p>
-          <button class="btn-success m-2" (click)="addToCart(item.id)">Add to Cart</button>
-          <div ngbDropdown class="nav-item dropdown">
-            <a ngbDropdownToggle class="nav-link dropdown-toggle" href="#" id="dropdown01" data-bs-toggle="dropdown" aria-expanded="false">Quantity</a>
-            <ul ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdown01">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
-            </ul>
+          <p class="card-text font-weight-bold">{{ item.price }}</p>
+          <button class="btn btn-primary m-2 mb-4 text-dark font-weight-bold" (click)="addToCart(item.id)">Add to Cart</button>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="inputGroupSelect01">Qty</label>
+            </div>
+            <select (change)="onSelectChange($event)" class="custom-select" id="item-{{ item.id }}">
+              <option selected>None</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+            </select>
           </div>
             </div>
           </div>
             </div>
           </div>
         </div>
+        </div>
+        </div>
+        </body>
       <!-- <h1 class="mt-4">Products</h1> -->
       <!-- <p>The starting state of the menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will change.</p>
       <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>. The top navbar is optional, and just for demonstration. Just create an element with the <code>#menu-toggle</code> ID which will toggle the menu when clicked.</p> -->

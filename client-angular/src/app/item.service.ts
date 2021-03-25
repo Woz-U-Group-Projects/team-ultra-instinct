@@ -40,5 +40,6 @@ export class ItemService {
   addToCart(itemId, itemQty): Observable<Item[]> {
     return this.http.get<Item[]>(this.apiUrl + "search/addToCart?itemId="+itemId+"&itemQty=" + itemQty) 
   }
+  
 
 }

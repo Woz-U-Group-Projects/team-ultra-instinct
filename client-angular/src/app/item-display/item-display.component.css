@@ -1,0 +1,56 @@
+body {
+    background-color: honeydew;
+}
+
+img {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+}
+
+input {
+    margin-left: 450px;
+}
+
+label {
+    background-color: rgb(126, 148, 189); 
+    color: black;
+    margin-left: 45px;
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+}
+
+button {
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+}
+
+input {
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+}
+
+select {
+    max-width: 80px;
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+}
+
+.bi-basket2 {
+    margin-top: 10px;
+}
+
+.btn {
+    background-color: cornflowerblue;
+}
+
+.navbar {
+    border-bottom: solid;
+    border-color: black;
+    border-width: 1px;
+}
+

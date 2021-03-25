@@ -5,6 +5,7 @@ import { Item } from "../models/item";
 @Component({
   selector: "app-item-display",
   templateUrl: "./item-display.component.html", 
+  styleUrls: ["./item-display.component.css"]
 })
 export class ItemDisplayComponent implements OnInit {
   constructor(private itemService: ItemService) {}
@@ -43,7 +44,22 @@ export class ItemDisplayComponent implements OnInit {
   }
 
   addToCart(itemId) {
-    this.itemService.addToCart(itemId, 1).subscribe(cart => (this.cart = cart));
+    const itemQty = document.getElementById("item-" + itemId)
+    console.log(itemQty)
+      // @ts-ignore
+      this.itemService.addToCart(itemId, itemQty.value).subscribe(cart => (this.cart = cart));
+  }
+
+  onSelectChange(e) {
+    console.log(e.target.value);
+  }
+
+  getCartQuantity(cart) {
+    var quantity = 0
+    cart.forEach((item) => {
+      quantity += item.qty
+    })
+    return quantity
   }
   
   ngOnInit() {
