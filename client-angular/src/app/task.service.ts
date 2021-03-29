@@ -9,7 +9,7 @@ import { Observable } from "rxjs";
 export class TaskService {
 
   // Express will use port 3000
-  apiUrl: string = "http://localhost:3001/tasks";
+  apiUrl: string = "http://localhost:3000/tasks";
 
   constructor(private http: HttpClient) {}
 

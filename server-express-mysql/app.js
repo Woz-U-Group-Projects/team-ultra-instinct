@@ -33,6 +33,12 @@ app.use("/search", searchRouter);
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
+//Access Control Allow Origin Header
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  next();
+});
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
