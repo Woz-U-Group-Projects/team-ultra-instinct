@@ -1,8 +1,8 @@
 <body>
 <div class="d-flex" id="wrapper">
   <!-- Sidebar -->
-  <div class="bg-info border-dark border-right pr-1" id="sidebar-wrapper">
-    <div class="sidebar-heading m-3 font-weight-bold font-italic">DG&T's Groceries</div>
+  <div class="border-dark border-right pr-1" id="sidebar-wrapper">
+    <div class="sidebar-heading m-3 font-weight-bold font-italic">DGT's Groceries</div>
     <div class="list-group list-group-flush font-italic">
       <a href="#" (click)="getItems()" class="col" style="border: 1px solid black" class="list-group-item list-group-item-action bg-light mb-1">All Products</a>
       <a href="#" (click)="getProduceItems()" class="col" style="border: 1px solid black" class="list-group-item list-group-item-action bg-light mb-1">Produce</a>
@@ -17,10 +17,11 @@
   <!-- /#sidebar-wrapper -->
   <!-- Page Content -->
   <div id="page-content-wrapper">
-    <nav class="navbar navbar-expand-lg navbar-light bg-info">
+    <nav class="navbar navbar-expand-xl navbar-light" id="searchNav">
+      <img src="https://www.parainmigrantes.info/wp-content/uploads/2010/03/dgt-logo-1280x720.jpg" width="100" height="40" class="mb-3" id="logo">
       <form (ngSubmit)="getQueryItems($event)">
         <input (change)="handleChange($event)" placeholder="Search items..." name="msg" [(ngModel)]="msg" />
-        <button class="button ml-2" type="submit">Search</button>
+        <button class="button ml-2 font-weight-bold" type="submit" id="searchBtn">Search</button>
       </form>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>

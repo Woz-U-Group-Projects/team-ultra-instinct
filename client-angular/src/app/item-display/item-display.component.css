@@ -1,5 +1,5 @@
 body {
-    background-color: honeydew;
+    background-color: rgb(233, 255, 247);
 }
 
 img {
@@ -54,3 +54,18 @@ select {
     border-width: 1px;
 }
 
+#logo {
+    mix-blend-mode: multiply;
+}
+
+#searchNav {
+    background-color: rgb(233, 176, 255);
+}
+
+#sidebar-wrapper {
+    background-color: rgb(233, 176, 255);
+}
+
+#searchBtn {
+    background-color: rgb(206, 206, 206);
+}

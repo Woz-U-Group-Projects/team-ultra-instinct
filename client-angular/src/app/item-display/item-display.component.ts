@@ -33,7 +33,7 @@ export class ItemDisplayComponent implements OnInit {
     this.itemService.getProteinItems().subscribe(items => (this.items = items));
   }
 
-  getQueryItems(event) {
+  getQueryItems() {
     console.log("queryItems", this.searchQuery)
     this.itemService.getQueryItems(this.searchQuery).subscribe(items => (this.items = items));
   }
