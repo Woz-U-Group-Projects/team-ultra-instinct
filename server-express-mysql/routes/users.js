@@ -64,7 +64,7 @@ router.post('/login',  passport.authenticate('local', {
   failureRedirect: '/users/login'
   }),
   function (req, res, next) {
-    res.redirect('profile');
+    res.redirect('../client-angular/src/item-display.component.html');
 });
 
 
