@@ -208,4 +208,9 @@ router.get("/searchQuery", function(req, res, next) {
   res.send(items)
 });
 
+router.get("/loginPage", function(req, res, next) {
+  // models.Items.findAll().then(items => res.json(items));
+  res.send(groceryItems)
+});
+
 module.exports = router;
